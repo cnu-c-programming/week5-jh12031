@@ -3,11 +3,11 @@
 void print_reverse(int *arr, int size) {
     int *p = arr + (size - 1);
 
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size -1 ; i++) {
         printf("%d", *p);
         p--;
     }
-    
+
 }
 
 int main() {

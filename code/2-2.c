@@ -1,21 +1,27 @@
 #include <stdio.h>
+#include <string.h>
+
+void sort_strings(char **arr, int size) {
+    char *temp;
+    for(int i = 0; i<size-1; i++) {
+        for(int j = 0; j < size - 1 - i; j++) {
+            if (strcmp(arr[i], arr[j])) {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                
+            }
+        }
+    }
+}
 
 int main() {
-    int a = 10, b = 20, c = 30, d = 40;
-    int *arr[] = {&a, &b, &c, &d};
-    int **pp = arr;
+    char* words[] = {"apple", "ant", "banana", "cherry"};
+    int size = 4;
 
-    int **base = arr;
+    sort_strings(words, size);
 
-    printf("%ld\n", (char *)pp - (char *)base);
-
-    pp = pp + 1;
-    printf("%ld\n", (char *)pp - (char *)base);
-
-    pp = pp + 1;
-    printf("%ld\n", (char *)pp - (char *)base);
-
-    pp = pp + 1;
-    printf("%ld\n", (char *)pp - (char *)base);
-
-    return 0;
+    for(int i = 0; i<size; i++) {
+        printf("%s\n", words[i]);
+    }
+}
